@@ -1,0 +1,115 @@
+# =========================================================================
+# PROTECTED GITIGNORE - DO NOT MODIFY VIA AUTOMATED AI AGENTS
+# =========================================================================
+# This file is part of the repository's 5-layer AI security guardrail system.
+# AI assistants, copilot tools, and automated agents are strictly forbidden
+# from removing or weakening any ignore pattern below.
+# =========================================================================
+
+# -------------------------------------------------------------------------
+# Environment Variables & Secrets (MANDATORY ZERO-LEAKAGE)
+# -------------------------------------------------------------------------
+.env
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+*.env
+
+# Explicitly whitelist the public template
+!.env.example
+
+# -------------------------------------------------------------------------
+# Cryptographic Keys, Certificates & Keystores
+# -------------------------------------------------------------------------
+*.pem
+*.key
+*.keystore
+*.jks
+*.pfx
+*.p12
+*.cer
+*.crt
+*.der
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+keystore.properties
+local.properties
+
+# -------------------------------------------------------------------------
+# Cloud Credentials & CLI Tokens
+# -------------------------------------------------------------------------
+.aws/
+.gcp/
+.azure/
+credentials.json
+client_secret*.json
+service-account*.json
+*.publishsettings
+
+# -------------------------------------------------------------------------
+# Dependencies & Package Managers
+# -------------------------------------------------------------------------
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+
+# -------------------------------------------------------------------------
+# Build & Compilation Outputs
+# -------------------------------------------------------------------------
+dist/
+build/
+out/
+.next/
+.turbo/
+.nuxt/
+.output/
+.svelte-kit/
+target/
+bin/
+obj/
+
+# -------------------------------------------------------------------------
+# Logs, Diagnostic & Coverage Artifacts
+# -------------------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+.nyc_output/
+
+# -------------------------------------------------------------------------
+# Local Database Files
+# -------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# -------------------------------------------------------------------------
+# OS & Editor Metadata
+# -------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# -------------------------------------------------------------------------
+# Git Hooks (Ensure our defense-in-depth hook is tracked!)
+# -------------------------------------------------------------------------
+!.githooks/
+!.githooks/*

@@ -1,0 +1,29 @@
+#!/bin/sh
+# =========================================================================
+# AI Security Guardrail Git Pre-Commit Hook
+# Prevents AI assistants and developers from committing .env files or secrets
+# =========================================================================
+
+echo ""
+echo "🔒 Running AI Security Guardrail Pre-Commit Checks..."
+
+# Verify node is available
+if ! command -v node >/dev/null 2>&1; then
+  echo "⚠️ Warning: Node.js is not found in PATH. Skipping local guardrail hook."
+  exit 0
+fi
+
+# Run the deterministic secret check script
+node scripts/check-secrets.mjs
+
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -ne 0 ]; then
+  echo ""
+  echo "🛑 Pre-commit check failed. Git commit aborted by AI Security Guardrails."
+  echo "Resolve the security violations above and try again."
+  echo ""
+  exit 1
+fi
+
+exit 0

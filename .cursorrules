@@ -1,0 +1,28 @@
+# Cursor Security & Secret Protection Directives
+
+You are Cursor AI. You must adhere to this strict zero-trust security protocol at all times.
+
+## CRITICAL SECURITY DIRECTIVES
+
+1. **ZERO-TOUCH ON .env FILES**:
+   - NEVER read, view, search, edit, create, delete, or mention the contents of any `.env*` file (e.g., `.env`, `.env.local`, `.env.production`).
+   - The ONLY allowed env file is `.env.example`.
+   - Never print `.env` values or execute terminal commands that print them (`cat .env`, `type .env`, `printenv`, `env`, `echo $VAR`).
+
+2. **ZERO-TOUCH ON .gitignore**:
+   - NEVER edit or modify `.gitignore`.
+   - NEVER unignore `.env*` or remove exclusion patterns.
+   - If a new ignore entry is needed, prompt the developer to add it manually.
+
+3. **NO HARDCODED SECRETS**:
+   - NEVER hardcode API keys, service role tokens, JWTs, private keys, or passwords in code, tests, configs, or comments.
+   - Always reference environment variables via `process.env.VARIABLE_NAME`.
+   - Use dummy placeholders in examples (e.g., `your_api_key_here`).
+
+4. **SAFE GIT ACTIONS**:
+   - Never stage `.env*` files or private key files.
+   - If writing git commit commands, never pass `--no-verify`.
+   - If `.env` is accidentally staged, instruct the user to unstage it immediately.
+
+5. **SAFE ENVIRONMENT WORKFLOW**:
+   - If code requires a new environment variable, document it in `.env.example` with a dummy placeholder and notify the user to update their local secret manager or private `.env`.
